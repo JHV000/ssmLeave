@@ -1,0 +1,70 @@
+package com.leave.mapper;
+
+import java.util.List;
+import java.util.Map;
+
+import com.leave.model.User;
+import org.apache.ibatis.annotations.Param;
+/**
+ * mapper层
+ * 也是一个接口
+ * 主要是对数据库进行持久化操作
+ * 数据库的语法在对应的mapper.xml文件中
+ */
+public interface UserMapper {
+
+
+    int queryUser(Map<String,Object> map);
+    User query(String username);
+    void addUser(Map<String,Object> map);
+
+
+
+
+
+//    /**
+//     * 分页查询 User
+//     * @param startRows 起始页
+//     * @return List<User>
+//     */
+    List<User> queryUserPage(Integer startRows);
+//
+//    /**
+//     * 分页查询 User 带条件
+//     * @param userName
+//     * @param userSex
+//     * @param startRows
+//     * @return
+//     */
+//    List<User> selectUserPage(@Param("userName")String userName, @Param("userSex")String userSex, @Param("startRows")Integer startRows);
+//
+//    /**
+//     * 查询 User 个数
+//     * @param userName
+//     * @param userSex
+//     * @return
+//     */
+//    Integer getRowCount(@Param("userName")String userName, @Param("userSex")String userSex);
+//
+//    /**
+//     * 添加 User
+//     * @param user
+//     * @return 返回码
+//     */
+//    Integer createUser(User user);
+//
+//    /**
+//     * 根据 userId 删除用户
+//     * @return 返回码
+//     */
+//    Integer deleteUserById(String userId);
+//
+//    /**
+//     * 根据 userId 批量删除用户
+//     * @param userIds
+//     * @return
+//     */
+//    Integer deleteUserByIdList(@Param("list") List userIds);
+
+
+}

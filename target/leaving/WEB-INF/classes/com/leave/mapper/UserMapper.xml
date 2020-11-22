@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.leave.mapper.UserMapper" >
+    <resultMap id="BaseResultMap" type="com.leave.model.User" >
+        <id property="uid" column="uid" jdbcType="INTEGER" />
+        <result property="username" column="username" jdbcType="VARCHAR" />
+        <result property="password" column="password" jdbcType="VARCHAR" />
+        <result property="sex" column="sex" jdbcType="VARCHAR" />
+        <result property="department" column="department" jdbcType="VARCHAR" />
+        <result property="phone" column="phone" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+
+
+    <select id="queryUser" parameterType="map" resultMap="BaseResultMap">
+        select  count(1) from user where username = #{username} and password = #{password}
+    </select>
+    <select id="query" parameterType="com.leave.model.User" resultMap="BaseResultMap">
+        select * from user where username = #{username}
+    </select>
+
+    <insert id="addUser" parameterType="map" keyProperty="id">
+    insert into user (uid,username,password,sex,department,phone) values (#{uid},#{username},#{password},#{sex},#{department},#{phone})
+    </insert>
+
+
+
+
+
+<!--    <sql id="Base_Column_List" >-->
+<!--        user_id, card_type, card_no, user_name, user_sex, user_age, user_role-->
+<!--    </sql>-->
+
+<!--    &lt;!&ndash;分页查询用户&ndash;&gt;-->
+<!--    <select id="queryUserPage" resultMap="BaseResultMap" parameterType="java.lang.Integer">-->
+<!--        select-->
+<!--        <include refid="Base_Column_List" />-->
+<!--        from user-->
+<!--        order by user_id desc-->
+<!--        limit #{startRows,jdbcType=INTEGER},5-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;分页查询用户&ndash;&gt;-->
+<!--    <select id="selectUserPage" resultMap="BaseResultMap">-->
+<!--        select-->
+<!--        <include refid="Base_Column_List" />-->
+<!--        from user-->
+<!--        <where>-->
+<!--            <if test="userName != null and userName !=''">-->
+<!--                and user_name like concat('%', #{userName}, '%')-->
+<!--            </if>-->
+<!--            <if test="userSex != null and userSex !=''">-->
+<!--                and user_sex = #{userSex}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--        order by user_id desc-->
+<!--        limit #{startRows,jdbcType=INTEGER},5-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;查询用户个数&ndash;&gt;-->
+<!--    <select id="getRowCount" resultType="java.lang.Integer">-->
+<!--        select count(*) from user-->
+<!--        <where>-->
+<!--            <if test="userName != null and userName !=''">-->
+<!--                and user_name like concat('%', #{userName}, '%')-->
+<!--            </if>-->
+<!--            <if test="userSex != null and userSex !=''">-->
+<!--                and user_sex = #{userSex}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;添加用户信息&ndash;&gt;-->
+<!--    <insert id="createUser" parameterType="com.leave.model.User" >-->
+<!--        insert into User(<include refid="Base_Column_List" />)-->
+<!--        values(#{userId}, #{cardType}, #{cardNo}, #{userName}, #{userSex}, #{userAge}, #{userRole})-->
+<!--    </insert>-->
+
+<!--    &lt;!&ndash;根据 user_id 删除用户&ndash;&gt;-->
+<!--    <delete id="deleteUserById" parameterType="String" >-->
+<!--        delete from user-->
+<!--        where user_id = #{userId,jdbcType=VARCHAR}-->
+<!--    </delete>-->
+
+
+
+
+</mapper>
