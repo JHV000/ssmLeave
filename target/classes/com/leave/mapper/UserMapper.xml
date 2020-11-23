@@ -8,17 +8,18 @@
         <result property="sex" column="sex" jdbcType="VARCHAR" />
         <result property="department" column="department" jdbcType="VARCHAR" />
         <result property="phone" column="phone" jdbcType="VARCHAR" />
-
     </resultMap>
 
 
-
-    <select id="queryUser" parameterType="map" resultMap="BaseResultMap">
-        select  count(1) from user where username = #{username} and password = #{password}
+    <select id="queryUser" parameterType="map" resultType="int">
+        select count(1) from user where username = #{username} and password = #{password}
     </select>
+
+
     <select id="query" parameterType="com.leave.model.User" resultMap="BaseResultMap">
         select * from user where username = #{username}
     </select>
+
 
     <insert id="addUser" parameterType="map" keyProperty="id">
     insert into user (uid,username,password,sex,department,phone) values (#{uid},#{username},#{password},#{sex},#{department},#{phone})

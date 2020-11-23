@@ -13,9 +13,12 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface UserMapper {
 
-
+    //查找用户，登录，并区分管理员和普通用户
     int queryUser(Map<String,Object> map);
+
+    //根据姓名查询
     User query(String username);
+    //添加新用户，注册
     void addUser(Map<String,Object> map);
 
 

@@ -20,15 +20,17 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    //登录
     @Override
     public int queryUser(Map<String,Object> map) {
         return userMapper.queryUser(map);
     }
-
+    //注册
     @Override
     public void addUser(Map<String, Object> map) {
-        userMapper.addUser(map);
+         userMapper.addUser(map);
     }
+    //查询
     @Override
     public User query(String username) {
 
@@ -36,10 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    @Override
-    public List<User> queryUserPage(Integer startRows) {
-        return userMapper.queryUserPage(startRows);
-    }
+
 
 //    @Override
 //    public List<User> selectUserPage(String userName, String userSex, Integer startRows) {

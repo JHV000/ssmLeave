@@ -13,9 +13,11 @@ import com.leave.model.User;
 public interface UserService {
 
 
-
+    //登录
     int queryUser(Map<String,Object> map);
+    //查询
     User query(String username);
+    //注册
     void addUser(Map<String,Object> map);
 
 
@@ -30,7 +32,7 @@ public interface UserService {
 
 
 
-    List<User> queryUserPage(Integer startRows);
+//    List<User> queryUserPage(Integer startRows);
 //
 //    /**
 //     * 分页查询 User 带条件

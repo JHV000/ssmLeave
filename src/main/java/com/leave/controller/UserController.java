@@ -22,21 +22,33 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/queryUser")
-
+    @PostMapping(value = "/queryUser")
     public @ResponseBody
-    int queryUser(@RequestParam Map<String, Object> map) {
-        System.out.println(map);
+    int queryUser(@RequestBody Map<String, Object> map) {
 
-        return userService.queryUser(map);
+        int flag = userService.queryUser(map);
+        if(flag==1){
+            System.out.println("登录成功");
+
+        }else {
+            System.out.println("登录失败");
+        }
+        return flag;
+
     }
 
 
-    @RequestMapping(value = "/addUser")
-
+    @PostMapping(value = "/addUser")
     public @ResponseBody
     void addUser(@RequestParam Map<String, Object> map) {
         userService.addUser(map);
+
+//        if(flag!=0){
+//            return "success";
+//        }else {
+//            return "failed";
+//        }
+
     }
 
 
@@ -48,14 +60,14 @@ public class UserController {
     }
 
 
-    @RequestMapping("/queryUserPage")
-    @ResponseBody
-    public List<User> queryUserPage(Integer page) {
-        int pageNow = page == null ? 1 : page;
-        int pageSize = 5;
-        int startRows = pageSize * (pageNow - 1);
-        return userService.queryUserPage(startRows);
-    }
+//    @RequestMapping("/queryUserPage")
+//    @ResponseBody
+//    public List<User> queryUserPage(Integer page) {
+//        int pageNow = page == null ? 1 : page;
+//        int pageSize = 5;
+//        int startRows = pageSize * (pageNow - 1);
+//        return userService.queryUserPage(startRows);
+//    }
 //
 //    @RequestMapping("/selectUserPage")
 //    @ResponseBody
