@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService {
     }
     //注册
     @Override
-    public void addUser(Map<String, Object> map) {
-         userMapper.addUser(map);
+    public int addUser(Map<String, Object> map) {
+          return userMapper.addUser(map);
     }
     //查询
     @Override

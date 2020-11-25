@@ -12,7 +12,7 @@
 
 
     <select id="queryUser" parameterType="map" resultType="int">
-        select count(1) from user where username = #{username} and password = #{password}
+        select uid from user where username = #{username} and password = #{password}
     </select>
 
 
@@ -21,7 +21,7 @@
     </select>
 
 
-    <insert id="addUser" parameterType="map" keyProperty="id">
+    <insert id="addUser" parameterType="map"  keyProperty="id">
     insert into user (uid,username,password,sex,department,phone) values (#{uid},#{username},#{password},#{sex},#{department},#{phone})
     </insert>
 

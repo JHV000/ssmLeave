@@ -19,7 +19,7 @@ public interface UserMapper {
     //根据姓名查询
     User query(String username);
     //添加新用户，注册
-    void addUser(Map<String,Object> map);
+    int addUser(Map<String,Object> map);
 
 
 

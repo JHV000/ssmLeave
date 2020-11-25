@@ -18,7 +18,7 @@ public interface UserService {
     //查询
     User query(String username);
     //注册
-    void addUser(Map<String,Object> map);
+    int addUser(Map<String,Object> map);
 
 
 

@@ -40,14 +40,9 @@ public class UserController {
 
     @PostMapping(value = "/addUser")
     public @ResponseBody
-    void addUser(@RequestParam Map<String, Object> map) {
-        userService.addUser(map);
-
-//        if(flag!=0){
-//            return "success";
-//        }else {
-//            return "failed";
-//        }
+    int addUser(@RequestBody Map<String, Object> map) {
+        int flag = userService.addUser(map);
+       return flag;
 
     }
 
