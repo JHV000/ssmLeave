@@ -15,11 +15,21 @@ public class LeaveController {
     @Autowired
     private LeaveService leaveService;
 
-    @PostMapping(value = "/queryUser")
+    @PostMapping(value = "/queryAll")
     public @ResponseBody
-    List<Leave> queryAll(@RequestBody int uid) {
-
+    List<Leave> queryAll(@RequestParam int uid) {
         return leaveService.queryAll(uid);
+    }
 
+    @GetMapping(value = "/checkLeave")
+    public @ResponseBody
+    int checkLeave(@RequestParam int id) {
+        return leaveService.checkLeave(id);
+    }
+
+    @PostMapping(value = "/addLeave")
+    public @ResponseBody
+    int addLeave(@RequestBody Map<String,Object> map) {
+        return leaveService.addLeave(map);
     }
 }

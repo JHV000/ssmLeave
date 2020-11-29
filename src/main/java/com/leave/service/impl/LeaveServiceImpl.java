@@ -18,11 +18,18 @@ public class LeaveServiceImpl implements LeaveService {
 
     @Override
     public List<Leave> queryAll(int uid) {
-        return null;
+
+        return leaveMapper.queryAll(uid);
     }
 
     @Override
-    public int checkNote(int id) {
-        return 0;
+    public int addLeave(Map<String, Object> map) {
+        return leaveMapper.addLeave(map);
     }
+
+    @Override
+    public int checkLeave(int id) {
+        return leaveMapper.checkLeave(id);
+    }
+
 }

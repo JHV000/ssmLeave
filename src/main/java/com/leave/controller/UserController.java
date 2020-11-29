@@ -50,7 +50,6 @@ public class UserController {
     @GetMapping(value = "/query")
     public @ResponseBody
     User query(@RequestParam String username) {
-
         return userService.query(username);
     }
 
