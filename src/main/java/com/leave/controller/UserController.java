@@ -53,6 +53,17 @@ public class UserController {
         return userService.query(username);
     }
 
+    @GetMapping(value = "/delete")
+    public @ResponseBody
+    int deleteUser(@RequestParam int uid) {
+        return userService.deleteUser(uid);
+    }
+
+    @GetMapping(value = "/queryAll")
+    public @ResponseBody
+    List<User> queryAll() {
+        return userService.queryAll();
+    }
 
 //    @RequestMapping("/queryUserPage")
 //    @ResponseBody

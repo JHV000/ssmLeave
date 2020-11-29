@@ -25,8 +25,13 @@
     insert into user (uid,username,password,sex,department,phone) values (#{uid},#{username},#{password},#{sex},#{department},#{phone})
     </insert>
 
-
-
+    <delete id="deleteUser" parameterType="int">
+        delete from user where uid = #{uid}
+    </delete>
+    
+    <select id="queryAll" resultMap="BaseResultMap">
+        select * from user
+    </select>
 
 
 <!--    <sql id="Base_Column_List" >-->

@@ -19,17 +19,10 @@ public interface UserService {
     User query(String username);
     //注册
     int addUser(Map<String,Object> map);
-
-
-
-
-
-
-
-
-
-
-
+    //删除
+    int deleteUser(int uid);
+    //查询所有用户
+    List<User> queryAll();
 
 
 //    List<User> queryUserPage(Integer startRows);

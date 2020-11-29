@@ -30,6 +30,17 @@ public class UserServiceImpl implements UserService {
     public int addUser(Map<String, Object> map) {
           return userMapper.addUser(map);
     }
+
+    @Override
+    public int deleteUser(int uid) {
+        return userMapper.deleteUser(uid);
+    }
+
+    @Override
+    public List<User> queryAll() {
+        return userMapper.queryAll();
+    }
+
     //查询
     @Override
     public User query(String username) {

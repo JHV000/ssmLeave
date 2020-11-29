@@ -21,9 +21,11 @@ public interface UserMapper {
     //添加新用户，注册
     int addUser(Map<String,Object> map);
 
+    //删除用户
+    int deleteUser(int uid);
 
-
-
+    //查询所有用户
+    List<User> queryAll();
 
 //    /**
 //     * 分页查询 User
