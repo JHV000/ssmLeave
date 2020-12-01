@@ -32,4 +32,9 @@ public class LeaveServiceImpl implements LeaveService {
         return leaveMapper.checkLeave(id);
     }
 
+    @Override
+    public List<Leave> showAll(int index) {
+        return leaveMapper.showAll(index);
+    }
+
 }

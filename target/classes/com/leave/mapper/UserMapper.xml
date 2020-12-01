@@ -28,9 +28,11 @@
     <delete id="deleteUser" parameterType="int">
         delete from user where uid = #{uid}
     </delete>
-    
+    <select id="search" parameterType="String" resultMap="BaseResultMap">
+        select * from user where username like  CONCAT('%',CONCAT(#{chara,jdbcType=VARCHAR},'%'))
+    </select>
     <select id="queryAll" resultMap="BaseResultMap">
-        select * from user
+        select * from user limit #{index},8
     </select>
 
 

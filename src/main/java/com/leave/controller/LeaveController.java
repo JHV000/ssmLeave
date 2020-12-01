@@ -15,7 +15,7 @@ public class LeaveController {
     @Autowired
     private LeaveService leaveService;
 
-    @PostMapping(value = "/queryAll")
+    @GetMapping(value = "/queryAll")
     public @ResponseBody
     List<Leave> queryAll(@RequestParam int uid) {
         return leaveService.queryAll(uid);
@@ -31,5 +31,12 @@ public class LeaveController {
     public @ResponseBody
     int addLeave(@RequestBody Map<String,Object> map) {
         return leaveService.addLeave(map);
+    }
+
+    @GetMapping(value = "/showAll")
+    public @ResponseBody
+    List<Leave> showAll(@RequestParam int index) {
+        int page = (index-1)*6;
+        return leaveService.showAll(page);
     }
 }

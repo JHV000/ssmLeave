@@ -22,8 +22,9 @@ public interface UserService {
     //删除
     int deleteUser(int uid);
     //查询所有用户
-    List<User> queryAll();
-
+    List<User> queryAll(int index);
+    //模糊查找
+    List<User> search(String chara);
 
 //    List<User> queryUserPage(Integer startRows);
 //

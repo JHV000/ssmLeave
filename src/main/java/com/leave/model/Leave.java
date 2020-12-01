@@ -3,10 +3,32 @@ package com.leave.model;
 public class Leave {
     private int uid;
     private int id;
+    private String username;
     private String starttime;
     private String endtime;
     private String reason;
     private int status;
+
+    @Override
+    public String toString() {
+        return "Leave{" +
+                "uid=" + uid +
+                ", id=" + id +
+                ", username='" + username + '\'' +
+                ", starttime='" + starttime + '\'' +
+                ", endtime='" + endtime + '\'' +
+                ", reason='" + reason + '\'' +
+                ", status=" + status +
+                '}';
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getId() {
         return id;
@@ -56,15 +78,4 @@ public class Leave {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Leave{" +
-                "uid=" + uid +
-                ", id=" + id +
-                ", starttime='" + starttime + '\'' +
-                ", endtime='" + endtime + '\'' +
-                ", reason='" + reason + '\'' +
-                ", status=" + status +
-                '}';
-    }
 }

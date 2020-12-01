@@ -3,6 +3,7 @@ package com.leave.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.leave.model.Leave;
 import com.leave.model.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,8 +62,16 @@ public class UserController {
 
     @GetMapping(value = "/queryAll")
     public @ResponseBody
-    List<User> queryAll() {
-        return userService.queryAll();
+    List<User> queryAll(int index) {
+        int page = (index-1)*8;
+        return userService.queryAll(page);
+    }
+
+    @GetMapping(value = "/search")
+    public @ResponseBody
+    List<User> search(@RequestParam String chara) {
+
+        return userService.search(chara);
     }
 
 //    @RequestMapping("/queryUserPage")

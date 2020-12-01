@@ -4,6 +4,7 @@
     <resultMap id="BaseResultMap" type="com.leave.model.Leave" >
         <id property="id" column="id" jdbcType="INTEGER" />
         <result property="uid" column="uid" jdbcType="INTEGER" />
+        <result property="username" column="username" jdbcType="VARCHAR" />
         <result property="starttime" column="starttime" jdbcType="VARCHAR" />
         <result property="endtime" column="endtime" jdbcType="VARCHAR" />
         <result property="reason" column="reason" jdbcType="VARCHAR" />
@@ -16,12 +17,18 @@
     </select>
 
     <insert id="addLeave" parameterType="map">
-        insert into leavenote (uid,starttime,endtime,reason) values (#{uid},#{starttime},#{endtime},#{reason})
+        insert into leavenote (uid,username,starttime,endtime,reason) values (#{uid},#{username},#{starttime},#{endtime},#{reason})
     </insert>
 
     <update id="checkLeave" parameterType="int">
         update leavenote set status = 1 where id = #{id}
     </update>
+
+    <select id="showAll" parameterType="int" resultMap="BaseResultMap">
+        select * from leavenote limit #{index},6
+    </select>
+
+
 
 
 <!--    <select id="query" parameterType="com.leave.model.User" resultMap="BaseResultMap">-->

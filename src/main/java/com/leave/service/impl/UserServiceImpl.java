@@ -37,14 +37,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> queryAll() {
-        return userMapper.queryAll();
+    public List<User> queryAll(int index) {
+        return userMapper.queryAll(index);
+    }
+
+    @Override
+    public List<User> search(String chara) {
+        return userMapper.search(chara);
     }
 
     //查询
     @Override
     public User query(String username) {
-
         return userMapper.query(username);
     }
 

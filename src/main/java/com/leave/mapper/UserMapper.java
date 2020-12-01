@@ -25,14 +25,10 @@ public interface UserMapper {
     int deleteUser(int uid);
 
     //查询所有用户
-    List<User> queryAll();
+    List<User> queryAll(int index);
 
-//    /**
-//     * 分页查询 User
-//     * @param startRows 起始页
-//     * @return List<User>
-//     */
-    List<User> queryUserPage(Integer startRows);
+    //模糊查找
+    List<User> search(String chara);
 //
 //    /**
 //     * 分页查询 User 带条件

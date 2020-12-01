@@ -9,4 +9,5 @@ public interface LeaveService {
     List<Leave> queryAll(int uid);
     int addLeave(Map<String, Object> map);
     int checkLeave(int id);
+    List<Leave> showAll(int index);
 }
