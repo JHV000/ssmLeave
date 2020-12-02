@@ -46,10 +46,15 @@ public class UserServiceImpl implements UserService {
         return userMapper.search(chara);
     }
 
+    @Override
+    public int update(Map<String,Object> map) {
+        return userMapper.update(map);
+    }
+
     //查询
     @Override
-    public User query(String username) {
-        return userMapper.query(username);
+    public User query(int uid) {
+        return userMapper.query(uid);
     }
 
 

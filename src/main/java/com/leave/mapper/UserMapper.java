@@ -17,7 +17,7 @@ public interface UserMapper {
     int queryUser(Map<String,Object> map);
 
     //根据姓名查询
-    User query(String username);
+    User query(int uid);
     //添加新用户，注册
     int addUser(Map<String,Object> map);
 
@@ -29,7 +29,13 @@ public interface UserMapper {
 
     //模糊查找
     List<User> search(String chara);
-//
+
+    //更新信息
+    int update(Map<String,Object> map);
+
+
+
+
 //    /**
 //     * 分页查询 User 带条件
 //     * @param userName

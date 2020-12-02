@@ -47,11 +47,19 @@ public class UserController {
 
     }
 
+    @PostMapping(value = "/update")
+    public @ResponseBody
+    int update(@RequestBody Map<String, Object> map) {
+
+        return userService.update(map);
+
+    }
+
 
     @GetMapping(value = "/query")
     public @ResponseBody
-    User query(@RequestParam String username) {
-        return userService.query(username);
+    User query(@RequestParam int uid) {
+        return userService.query(uid);
     }
 
     @GetMapping(value = "/delete")
@@ -70,7 +78,6 @@ public class UserController {
     @GetMapping(value = "/search")
     public @ResponseBody
     List<User> search(@RequestParam String chara) {
-
         return userService.search(chara);
     }
 

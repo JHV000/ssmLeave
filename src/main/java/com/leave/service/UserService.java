@@ -16,7 +16,7 @@ public interface UserService {
     //登录
     int queryUser(Map<String,Object> map);
     //查询
-    User query(String username);
+    User query(int uid);
     //注册
     int addUser(Map<String,Object> map);
     //删除
@@ -25,6 +25,8 @@ public interface UserService {
     List<User> queryAll(int index);
     //模糊查找
     List<User> search(String chara);
+    //更新信息
+    int update(Map<String,Object> map);
 
 //    List<User> queryUserPage(Integer startRows);
 //

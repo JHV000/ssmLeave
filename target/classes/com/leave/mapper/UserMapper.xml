@@ -16,8 +16,8 @@
     </select>
 
 
-    <select id="query" parameterType="com.leave.model.User" resultMap="BaseResultMap">
-        select * from user where username = #{username}
+    <select id="query" parameterType="int" resultMap="BaseResultMap">
+        select * from user where uid = #{uid}
     </select>
 
 
@@ -35,6 +35,9 @@
         select * from user limit #{index},8
     </select>
 
+    <update id="update" parameterType="map" keyProperty="uid">
+        update user set username = #{username},department = #{department},phone = #{phone} where uid = #{uid}
+    </update>
 
 <!--    <sql id="Base_Column_List" >-->
 <!--        user_id, card_type, card_no, user_name, user_sex, user_age, user_role-->
